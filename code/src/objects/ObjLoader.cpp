@@ -1,6 +1,6 @@
 #include "objects/ObjLoader.h"
 
-bool ObjLoader::loadOBJ(const char* path, std::vector<glm::vec3>& out_vertices, std::vector<glm::vec3>& out_uvs, std::vector<glm::vec3>& out_normals)
+bool ObjLoader::loadOBJ(const char* path, std::vector<glm::vec3>& out_vertices, std::vector<glm::vec2>& out_uvs, std::vector<glm::vec3>& out_normals)
 {
 	std::vector< unsigned int > vertexIndices, uvIndices, normalIndices;
 	std::vector< glm::vec3 > temp_vertices;
@@ -52,6 +52,26 @@ bool ObjLoader::loadOBJ(const char* path, std::vector<glm::vec3>& out_vertices, 
 			normalIndices.push_back(normalIndex[1]);
 			normalIndices.push_back(normalIndex[2]);
 		}
+	}
+
+	// For each vertex of each triangle
+	for (unsigned int i = 0; i < vertexIndices.size(); i++) {
+		unsigned int vertexIndex = vertexIndices[i];
+		glm::vec3 vertex = temp_vertices[vertexIndex - 1];
+		out_vertices.push_back(vertex);
+	}
+	
+	for (unsigned int i = 0; i < uvIndices.size(); i++) {
+		unsigned int uvIndices = uvIndices[i];
+		glm::vec2 uv = temp_uvs[uvIndices - 1];
+		out_uvs.push_back(uv);
+	}
+	
+	// Cambiar por normalIndices!!!!!!!!!!!!!!!!!!!!!!!!
+	for (unsigned int i = 0; i < vertexIndices.size(); i++) {
+		unsigned int vertexIndex = vertexIndices[i];
+		glm::vec3 vertex = temp_vertices[vertexIndex - 1];
+		out_vertices.push_back(vertex);
 	}
 
 	return true;
