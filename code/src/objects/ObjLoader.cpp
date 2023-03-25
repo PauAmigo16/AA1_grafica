@@ -62,8 +62,8 @@ bool ObjLoader::loadOBJ(const char* path, std::vector<glm::vec3>& out_vertices, 
 	}
 	
 	for (unsigned int i = 0; i < uvIndices.size(); i++) {
-		unsigned int uvIndices = uvIndices[i];
-		glm::vec2 uv = temp_uvs[uvIndices - 1];
+		unsigned int uvIndex = uvIndices[i];
+		glm::vec2 uv = temp_uvs[uvIndex - 1];
 		out_uvs.push_back(uv);
 	}
 	
