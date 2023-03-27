@@ -15,5 +15,11 @@ private:
 	std::vector<glm::vec2>uvs;
 	std::vector<glm::vec3>normals;
 
+	glm::vec4 color;
+	glm::mat4 objMat;
+	CameraTransforms cam;
 
+	GLuint VAO;
+	GLuint VBO[2];
+	Program* program; 
 };

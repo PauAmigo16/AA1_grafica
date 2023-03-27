@@ -163,11 +163,10 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
+    <None Include="shaders\Cube.frag" />
+    <None Include="shaders\Cube.vert" />
     <None Include="shaders\triangle.frag" />
     <None Include="shaders\triangle.vert" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="src\objects\QB.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
