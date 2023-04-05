@@ -15,7 +15,7 @@ bool ObjLoader::LoadOBJ(const char* path, std::vector<glm::vec3>& out_vertices, 
 	}
 
 	while (1) {
-		char lineHeader[128];
+		char lineHeader[255];
 		// read the first word of the line
 		int res = fscanf(file, "%s", lineHeader);
 		if (res == EOF)

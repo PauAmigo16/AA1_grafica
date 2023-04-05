@@ -139,6 +139,8 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_sdl_gl3.cpp" />
+    <ClCompile Include="src\objects\LightReciever.cpp" />
+    <ClCompile Include="src\objects\MyModel.cpp" />
     <ClCompile Include="src\objects\ObjLoader.cpp" />
     <ClCompile Include="src\objects\PhongCube.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -153,6 +155,8 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\GL_framework.h" />
     <ClInclude Include="include\objects\Axis.h" />
     <ClInclude Include="include\objects\Cube.h" />
+    <ClInclude Include="include\objects\LightReciever.h" />
+    <ClInclude Include="include\objects\MyModel.h" />
     <ClInclude Include="include\objects\ObjLoader.h" />
     <ClInclude Include="include\Program.h" />
     <ClInclude Include="include\renderers\AA1.h" />
@@ -163,8 +167,14 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
+    <None Include="shaders\Axis.frag" />
+    <None Include="shaders\Axis.vert" />
     <None Include="shaders\Cube.frag" />
     <None Include="shaders\Cube.vert" />
+    <None Include="shaders\QB.frag" />
+    <None Include="shaders\QB.vert" />
+    <None Include="shaders\Spaceship.frag" />
+    <None Include="shaders\Spaceship.vert" />
     <None Include="shaders\triangle.frag" />
     <None Include="shaders\triangle.vert" />
   </ItemGroup>

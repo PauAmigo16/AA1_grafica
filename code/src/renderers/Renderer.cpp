@@ -8,7 +8,7 @@ Renderer::Renderer(int width, int height)
 
 	cam._projection = glm::perspective(FOV, (float)width / (float)height, zNear, zFar);
 
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 
 	axis = new Axis();
 }
