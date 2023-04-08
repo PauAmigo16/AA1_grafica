@@ -20,8 +20,8 @@ MyModel::MyModel(std::string name, std::string path)
 
 	// Initialize program
 	program = new Program(name.c_str());
-	program->compileAndAttachShader("shaders/Spaceship.vert", GL_VERTEX_SHADER, "vertex");
-	program->compileAndAttachShader("shaders/Spaceship.frag", GL_FRAGMENT_SHADER, "fragment");
+	program->compileAndAttachShader("shaders/Dragon.vert", GL_VERTEX_SHADER, "vertex");
+	program->compileAndAttachShader("shaders/Dragon.frag", GL_FRAGMENT_SHADER, "fragment");
 
 	// Bind Attrib locations
 	program->bindAttribLocation(0, "in_Position");
@@ -61,6 +61,14 @@ void MyModel::draw()
 	glUniformMatrix4fv(program->getUniform("mv_Mat"), 1, GL_FALSE, glm::value_ptr(camTr._modelView));
 	glUniformMatrix4fv(program->getUniform("mvpMat"), 1, GL_FALSE, glm::value_ptr(camTr._MVP));
 	glUniform4f(program->getUniform("color"), color.r, color.g, color.b, color.w);
+	glUniform4f(program->getUniform("lightColor"), lightColor.r, lightColor.g, lightColor.b, lightColor.w);
+	glUniform3f(program->getUniform("lightPos"), lightPos.x, lightPos.y, lightPos.z);
+	glUniform1f(program->getUniform("lightIntensity"), lightIntensity);
+	glUniform3f(program->getUniform("camPos"), camTr._cameraPoint.x, camTr._cameraPoint.y, camTr._cameraPoint.z);
+	glUniform1f(program->getUniform("brightness"), brightness);
+	glUniform1f(program->getUniform("kAmbient"), kAmbient);
+	glUniform1f(program->getUniform("kDiffuse"), kDiffuse);
+	glUniform1f(program->getUniform("kSpecular"), kSpecular);
 
 	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 
@@ -70,4 +78,9 @@ void MyModel::draw()
 
 void MyModel::DrawGUI()
 {
+	ImGui::Text("Model");
+	ImGui::SliderFloat("ambient", &kAmbient, 0.f, 1.f);
+	ImGui::SliderFloat("diffuse", &kDiffuse, 0.f, 1.f);
+	ImGui::SliderFloat("specular", &kSpecular, 0.f, 1.f);
+
 }

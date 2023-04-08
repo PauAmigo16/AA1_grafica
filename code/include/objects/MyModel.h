@@ -32,4 +32,7 @@ private:
 	GLuint VAO;
 	GLuint VBO[2];
 	Program* program;
+
+
+
 };

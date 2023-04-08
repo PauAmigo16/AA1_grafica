@@ -2,23 +2,48 @@
 
 AA1::AA1(int width, int height) : Renderer(width, height)
 {
-	theModel = new MyModel("Object xdd", "src/objects/Intergalactic_Spaceship.obj");
-	theModel->setColor(glm::vec4(0.721f, 0.8f, 0.917f, 1.f));
+	theModel = new MyModel("Object xdd", "src/objects/dragon.obj");
+	theModel->setColor(glm::vec4(0.f, .7f,0.f, 1.f));
+	theLight = new LightCube();
+	theLight->setColor(glm::vec4(0.f, .7f, 0.f, 1.f));
+	theLight->setPosition(glm::vec3(.0f, 5.f, -2.f));
+	theModel->SetAmbient(0.4f);
+	theModel->SetDiffuse(0.55f);
+	theModel->SetSpecular(0.25f);
 }
 
 AA1::~AA1()
 {
 	delete theModel;
+	delete theLight;
 }
 
 void AA1::render(float dt)
 {
 	theModel->setTransforms(
-		glm::translate(glm::mat4(), glm::vec3(0.f, 0.2f, -2.f)) * 
+		glm::translate(glm::mat4(), glm::vec3(0.f, 0.f, -2.f)) * 
 		glm::scale(glm::mat4(), glm::vec3(0.1f)),
-
 		cam
 	);
 
+	theLight->setTransforms(
+		glm::translate(glm::mat4(), theLight->getPosition()) *
+		glm::scale(glm::mat4(), glm::vec3(0.3f)),
+		cam
+	);
+
+	theModel->SetLightPos(theLight->getPosition());
+	theModel->SetLightColor(theLight->getColor());
+	theModel->SetLightIntensity(theLight->getIntensity());
+	theModel->SetBrightness(theLight->getBrightness());
+
 	theModel->draw();	
+	theLight->draw();
+}
+
+void AA1::renderGUI()
+{
+	theLight->DrawGUI();
+	ImGui::Spacing();
+	theModel->DrawGUI();
 }

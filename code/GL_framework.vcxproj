@@ -139,10 +139,10 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_sdl_gl3.cpp" />
+    <ClCompile Include="src\objects\LightCube.cpp" />
     <ClCompile Include="src\objects\LightReciever.cpp" />
     <ClCompile Include="src\objects\MyModel.cpp" />
     <ClCompile Include="src\objects\ObjLoader.cpp" />
-    <ClCompile Include="src\objects\PhongCube.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\objects\Axis.cpp" />
     <ClCompile Include="src\objects\Cube.cpp" />
@@ -155,6 +155,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\GL_framework.h" />
     <ClInclude Include="include\objects\Axis.h" />
     <ClInclude Include="include\objects\Cube.h" />
+    <ClInclude Include="include\objects\LightCube.h" />
     <ClInclude Include="include\objects\LightReciever.h" />
     <ClInclude Include="include\objects\MyModel.h" />
     <ClInclude Include="include\objects\ObjLoader.h" />
@@ -163,7 +164,6 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\renderers\ExPlacementTriangles.h" />
     <ClInclude Include="include\renderers\ExSimpleCube.h" />
     <ClInclude Include="include\renderers\Renderer.h" />
-    <ClInclude Include="include\objects\PhongCube.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
@@ -171,6 +171,8 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <None Include="shaders\Axis.vert" />
     <None Include="shaders\Cube.frag" />
     <None Include="shaders\Cube.vert" />
+    <None Include="shaders\Dragon.frag" />
+    <None Include="shaders\Dragon.vert" />
     <None Include="shaders\QB.frag" />
     <None Include="shaders\QB.vert" />
     <None Include="shaders\Spaceship.frag" />

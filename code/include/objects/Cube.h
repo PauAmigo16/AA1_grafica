@@ -12,7 +12,7 @@ public:
 	void setTransforms(glm::mat4 objMat, CameraTransforms cam);
 	void setColor(glm::vec4 color);
 	void draw();
-private:
+protected:
 	GLuint VAO;
 	GLuint VBO[3];
 	Program* program;
