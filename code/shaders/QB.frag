@@ -1,11 +1,10 @@
 #version 330
 
-in vec4 vert_Normal;
+in vec2 vert_UVs;
 out vec4 out_Color;
 
-uniform mat4 mv_Mat;
-uniform vec4 color;
+uniform sampler2D text;
 
 void main() {
-	out_Color = color;
+	out_Color = texture(text, vert_UVs);
 }

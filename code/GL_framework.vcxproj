@@ -146,12 +146,14 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\objects\Axis.cpp" />
     <ClCompile Include="src\objects\Cube.cpp" />
+    <ClCompile Include="src\objects\TexturedCube.cpp" />
     <ClCompile Include="src\renderers\AA1.cpp" />
     <ClCompile Include="src\renderers\ExPlacementTriangles.cpp" />
     <ClCompile Include="src\renderers\ExSimpleCube.cpp" />
     <ClCompile Include="src\renderers\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Downloads\stb_image.h" />
     <ClInclude Include="include\GL_framework.h" />
     <ClInclude Include="include\objects\Axis.h" />
     <ClInclude Include="include\objects\Cube.h" />
@@ -159,11 +161,13 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\objects\LightReciever.h" />
     <ClInclude Include="include\objects\MyModel.h" />
     <ClInclude Include="include\objects\ObjLoader.h" />
+    <ClInclude Include="include\objects\TexturedCube.h" />
     <ClInclude Include="include\Program.h" />
     <ClInclude Include="include\renderers\AA1.h" />
     <ClInclude Include="include\renderers\ExPlacementTriangles.h" />
     <ClInclude Include="include\renderers\ExSimpleCube.h" />
     <ClInclude Include="include\renderers\Renderer.h" />
+    <ClInclude Include="include\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui.ini" />
@@ -174,6 +178,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <None Include="shaders\Dragon.frag" />
     <None Include="shaders\Dragon.vert" />
     <None Include="shaders\QB.frag" />
+    <None Include="shaders\QB.geom" />
     <None Include="shaders\QB.vert" />
     <None Include="shaders\Spaceship.frag" />
     <None Include="shaders\Spaceship.vert" />
