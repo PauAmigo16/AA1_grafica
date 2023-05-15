@@ -1,10 +1,11 @@
 #pragma once
 #include "Cube.h"
+#include "TextureHandler.h"
 
 class TexturedCube : public Cube
 {
 private:
-	GLuint texture[6];
+	TextureHandler* texHandler;
 
 public:
 	const float halfSide = 0.45f;
@@ -12,7 +13,5 @@ public:
 	TexturedCube();
 	~TexturedCube();
 
-	void LoadImage(int text);
 	void draw() override;
 };
-

@@ -3,8 +3,8 @@
 in vec2 vert_UVs;
 out vec4 out_Color;
 
-uniform sampler2D text;
+uniform sampler2D myTexture;
 
 void main() {
-	out_Color = texture(text, vert_UVs);
+	out_Color = texture(myTexture, vert_UVs);
 }

@@ -3,6 +3,7 @@
 #include "objects/MyModel.h"
 #include "objects/LightCube.h"
 #include "objects/TexturedCube.h"
+#include "objects/BillBoard.h"
 
 class AA1 : public Renderer
 {
@@ -17,5 +18,6 @@ private:
 	MyModel* theModel;
 	LightCube* theLight;
 	TexturedCube* theCube;
+	BillBoard* billboard;
 	
 };

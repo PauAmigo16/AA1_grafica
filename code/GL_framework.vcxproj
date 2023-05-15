@@ -139,6 +139,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_sdl_gl3.cpp" />
+    <ClCompile Include="src\objects\BillBoard.cpp" />
     <ClCompile Include="src\objects\LightCube.cpp" />
     <ClCompile Include="src\objects\LightReciever.cpp" />
     <ClCompile Include="src\objects\MyModel.cpp" />
@@ -147,21 +148,23 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="src\objects\Axis.cpp" />
     <ClCompile Include="src\objects\Cube.cpp" />
     <ClCompile Include="src\objects\TexturedCube.cpp" />
+    <ClCompile Include="src\objects\TextureHandler.cpp" />
     <ClCompile Include="src\renderers\AA1.cpp" />
     <ClCompile Include="src\renderers\ExPlacementTriangles.cpp" />
     <ClCompile Include="src\renderers\ExSimpleCube.cpp" />
     <ClCompile Include="src\renderers\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\stb_image.h" />
     <ClInclude Include="include\GL_framework.h" />
     <ClInclude Include="include\objects\Axis.h" />
+    <ClInclude Include="include\objects\BillBoard.h" />
     <ClInclude Include="include\objects\Cube.h" />
     <ClInclude Include="include\objects\LightCube.h" />
     <ClInclude Include="include\objects\LightReciever.h" />
     <ClInclude Include="include\objects\MyModel.h" />
     <ClInclude Include="include\objects\ObjLoader.h" />
     <ClInclude Include="include\objects\TexturedCube.h" />
+    <ClInclude Include="include\objects\TextureHandler.h" />
     <ClInclude Include="include\Program.h" />
     <ClInclude Include="include\renderers\AA1.h" />
     <ClInclude Include="include\renderers\ExPlacementTriangles.h" />
@@ -173,6 +176,9 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <None Include="imgui.ini" />
     <None Include="shaders\Axis.frag" />
     <None Include="shaders\Axis.vert" />
+    <None Include="shaders\Billboard.frag" />
+    <None Include="shaders\Billboard.geom" />
+    <None Include="shaders\Billboard.vert" />
     <None Include="shaders\Cube.frag" />
     <None Include="shaders\Cube.vert" />
     <None Include="shaders\Dragon.frag" />

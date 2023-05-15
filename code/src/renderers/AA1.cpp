@@ -13,6 +13,7 @@ AA1::AA1(int width, int height) : Renderer(width, height)
 	theCube = new TexturedCube();
 	theCube->setColor(glm::vec4(1.f, 1.f, 1.f, 1.f));
 
+	billboard = new BillBoard(glm::vec3(0.f, 0.f, -6.f));
 }
 
 AA1::~AA1()
@@ -40,6 +41,8 @@ void AA1::render(float dt)
 		cam
 	);
 
+	billboard->UpdateTransform(glm::vec3(0.f, 1.5f, -8.f), cam);
+
 	theModel->SetLightPos(theLight->getPosition());
 	theModel->SetLightColor(theLight->getColor());
 	theModel->SetLightIntensity(theLight->getIntensity());
@@ -48,6 +51,7 @@ void AA1::render(float dt)
 	theModel->draw();	
 	theLight->draw();
 	theCube->draw();
+	billboard->draw();
 }
 
 void AA1::renderGUI()
