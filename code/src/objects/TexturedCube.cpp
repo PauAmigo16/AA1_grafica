@@ -1,6 +1,6 @@
 #include "objects/TexturedCube.h"
 
-TexturedCube::TexturedCube() : Cube()
+TexturedCube::TexturedCube()
 {
 	float vertices[]{
 		// Positions                        // Texture coords
@@ -36,34 +36,43 @@ TexturedCube::TexturedCube() : Cube()
 	};
 
 	unsigned int indices[]{
-		2, 3, 1,        // Front top triangle
+		2, 3, 1,         // Front top triangle
 		3, 1, 0,        // Front bottom triangle
+		UCHAR_MAX,
 
 		6, 7, 5,        // Right top triangle
 		7, 5, 4,        // Right bottom triangle
-
+		UCHAR_MAX,
 		10, 11, 9,      // Top top trinagle
 		11, 9, 8,       // Top bottom triangle
+		UCHAR_MAX,
 
 		14, 15, 13,     // Left top triangle
 		15, 13, 12,     // Left bottom triangle
+		UCHAR_MAX,
 
 		18, 19, 17,     // Bottom top triangle
 		19, 17, 16,     // Bottom bottom triangle
+		UCHAR_MAX,
 
 		22, 23, 21,     // Back top triangle
-		23, 21, 20,     // Back bottom triangle
+		23, 21, 20, 
+		UCHAR_MAX		// Back bottom triangle
 	};
 
 	// Bind VAO
+	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 
 	// EBO
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBO[1]);
+	glPrimitiveRestartIndex(UCHAR_MAX);
+	glGenBuffers(1, &EBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// VBO
-	glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	// Define the position attribute
@@ -79,7 +88,8 @@ TexturedCube::TexturedCube() : Cube()
 	glEnableVertexAttribArray(1);
 
 	glBindVertexArray(0);
-
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	program = new Program("TexturedQB");
 	program->compileAndAttachShader(std::string("shaders/").append("QB").append(".vert").c_str(), GL_VERTEX_SHADER, std::string("TexturedCube").append(" VS").c_str());
@@ -104,9 +114,21 @@ TexturedCube::TexturedCube() : Cube()
 TexturedCube::~TexturedCube()
 {
 	delete program;
-	glDeleteBuffers(3, VBO);
+	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
 	glDeleteVertexArrays(1, &VAO);
 	delete texHandler;
+}
+
+void TexturedCube::setTransforms(glm::mat4 objMat, CameraTransforms cam)
+{
+	this->objMat = objMat;
+	this->cam = cam;
+}
+
+void TexturedCube::setColor(glm::vec4 color)
+{
+	this->color = color;
 }
 
 void TexturedCube::draw()
@@ -142,8 +164,8 @@ void TexturedCube::draw()
 			program->getUniform("myTexture"),
 			texHandler->GetTexID(0)
 		);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)(i * 6 * sizeof(unsigned int)));
 	}
+	glDrawElements(GL_TRIANGLES, 30, GL_UNSIGNED_INT, 0);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
 
