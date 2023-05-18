@@ -21,6 +21,7 @@ MyModel::MyModel(std::string name, std::string path)
 	// Initialize program
 	program = new Program(name.c_str());
 	program->compileAndAttachShader("shaders/Dragon.vert", GL_VERTEX_SHADER, "vertex");
+	program->compileAndAttachShader("shaders/Dragon.geom", GL_GEOMETRY_SHADER, "geometry");
 	program->compileAndAttachShader("shaders/Dragon.frag", GL_FRAGMENT_SHADER, "fragment");
 
 	// Bind Attrib locations
@@ -69,11 +70,20 @@ void MyModel::draw()
 	glUniform1f(program->getUniform("kAmbient"), kAmbient);
 	glUniform1f(program->getUniform("kDiffuse"), kDiffuse);
 	glUniform1f(program->getUniform("kSpecular"), kSpecular);
+	glUniform1f(program->getUniform("dt"), eTime);
 
 	glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 
 	program->unuse();
 	glBindVertexArray(0);
+}
+
+void MyModel::Update(float dt)
+{
+	if (!explode)
+		return;
+
+	eTime += dt * 10.f;
 }
 
 void MyModel::DrawGUI()
@@ -82,5 +92,8 @@ void MyModel::DrawGUI()
 	ImGui::SliderFloat("ambient", &kAmbient, 0.f, 1.f);
 	ImGui::SliderFloat("diffuse", &kDiffuse, 0.f, 1.f);
 	ImGui::SliderFloat("specular", &kSpecular, 0.f, 1.f);
+	if (ImGui::Button("KABOOM!")) {
+		explode = !explode;
+	}
 
 }

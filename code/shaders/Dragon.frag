@@ -1,6 +1,6 @@
 #version 330
 
-in vec4 vert_Normal;
+in vec4 frag_Normal;
 in vec4 FragPos;
 out vec4 out_Color;
 
@@ -24,7 +24,7 @@ void main() {
 	vec3 surfacePos = vec3(objMat * FragPos);
 	vec3 ligthDir = lightPos - surfacePos;
 	vec3 lightDirNorm = normalize(ligthDir); 
-	vec3 normal = normalize(vert_Normal.xyz);
+	vec3 normal = normalize(frag_Normal.xyz);
 	float dotNormLight = clamp(dot(normal, lightDirNorm), 0.f, 1.f);
 	float dist = max(0.001f, length(ligthDir));
 	vec4 diffuse = color * lightColor * dotNormLight * (lightIntensity / (4.f*3.141592*dist*dist));

@@ -16,6 +16,7 @@ public:
 	void setTransforms(glm::mat4 objMat, CameraTransforms cam);
 	void setColor(glm::vec4 color);
 	void draw();
+	void Update(float dt);
 
 	void DrawGUI();
 
@@ -33,6 +34,6 @@ private:
 	GLuint VBO[2];
 	Program* program;
 
-
-
+	bool explode;
+	float eTime;
 };

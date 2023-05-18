@@ -48,6 +48,8 @@ void AA1::render(float dt)
 	theModel->SetLightIntensity(theLight->getIntensity());
 	theModel->SetBrightness(theLight->getBrightness());
 
+	theModel->Update(dt);
+
 	theModel->draw();	
 	theLight->draw();
 	theCube->draw();
