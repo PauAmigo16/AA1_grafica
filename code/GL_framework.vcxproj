@@ -148,6 +148,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="src\objects\Axis.cpp" />
     <ClCompile Include="src\objects\Cube.cpp" />
     <ClCompile Include="src\objects\TexturedCube.cpp" />
+    <ClCompile Include="src\objects\TexturedPlane.cpp" />
     <ClCompile Include="src\objects\TextureHandler.cpp" />
     <ClCompile Include="src\renderers\AA1.cpp" />
     <ClCompile Include="src\renderers\ExPlacementTriangles.cpp" />
@@ -164,6 +165,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\objects\MyModel.h" />
     <ClInclude Include="include\objects\ObjLoader.h" />
     <ClInclude Include="include\objects\TexturedCube.h" />
+    <ClInclude Include="include\objects\TexturedPlane.h" />
     <ClInclude Include="include\objects\TextureHandler.h" />
     <ClInclude Include="include\Program.h" />
     <ClInclude Include="include\renderers\AA1.h" />
@@ -189,6 +191,8 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <None Include="shaders\QB.vert" />
     <None Include="shaders\Spaceship.frag" />
     <None Include="shaders\Spaceship.vert" />
+    <None Include="shaders\Texture.frag" />
+    <None Include="shaders\Texture.vert" />
     <None Include="shaders\triangle.frag" />
     <None Include="shaders\triangle.vert" />
   </ItemGroup>

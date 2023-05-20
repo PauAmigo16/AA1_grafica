@@ -1,5 +1,5 @@
 #pragma once
-#include "TextureHandler.h"
+#include "TexturedPlane.h"
 #include "Program.h"
 #include <renderers/Renderer.h>
 #include <GL/glew.h>
@@ -8,16 +8,10 @@
 class TexturedCube
 {
 private:
-	TextureHandler* texHandler;
-
-	GLuint VAO;
-	GLuint VBO;
-	GLuint EBO;
-	Program* program;
+	TexturedPlane* cube[6];
 
 	glm::mat4 objMat;
 	CameraTransforms cam;
-	glm::vec4 color;
 public:
 	const float halfSide = 0.45f;
 
@@ -26,6 +20,5 @@ public:
 
 	void draw();
 
-	void setTransforms(glm::mat4 objMat, CameraTransforms cam);
-	void setColor(glm::vec4 color);
+	void setTransforms(glm::mat4 _objMat, CameraTransforms cam);
 };

@@ -11,8 +11,6 @@ AA1::AA1(int width, int height) : Renderer(width, height)
 	theModel->SetDiffuse(0.55f);
 	theModel->SetSpecular(0.25f);
 	theCube = new TexturedCube();
-	theCube->setColor(glm::vec4(1.f, 1.f, 1.f, 1.f));
-
 	billboard = new BillBoard(glm::vec3(0.f, 0.f, -6.f));
 }
 
