@@ -21,7 +21,7 @@ void ExSimpleCube::render(float dt)
 		cam
 	);
 
-	cube->draw();
+	cube->Draw();
 
 }
 

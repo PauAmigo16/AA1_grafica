@@ -15,7 +15,7 @@ public:
 
 	void setTransforms(glm::mat4 objMat, CameraTransforms cam);
 	void setColor(glm::vec4 color);
-	void draw();
+	void Draw();
 	void Update(float dt);
 
 	void DrawGUI();

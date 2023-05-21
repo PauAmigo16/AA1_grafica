@@ -55,7 +55,7 @@ void BillBoard::UpdateTransform(glm::vec3 pivot, CameraTransforms camTr)
 	cam = camTr;
 }
 
-void BillBoard::draw()
+void BillBoard::Draw()
 {
 	glBindVertexArray(VAO);
 	program->use();

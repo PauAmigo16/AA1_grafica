@@ -14,6 +14,8 @@ TextureHandler::TextureHandler(const std::vector<std::string>& paths)
 	textures.resize(paths.size());
 	glGenTextures(paths.size(), &textures[0]);
 
+	stbi_set_flip_vertically_on_load(true);
+
 	for (int i = 0; i < paths.size(); i++)
 	{				
 		// Load image in CPU	

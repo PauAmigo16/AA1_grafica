@@ -11,7 +11,8 @@ public:
 	~Cube();
 	void setTransforms(glm::mat4 objMat, CameraTransforms cam);
 	void setColor(glm::vec4 color);
-	virtual void draw();
+	virtual void Draw();
+
 protected:
 	GLuint VAO;
 	GLuint VBO[3];

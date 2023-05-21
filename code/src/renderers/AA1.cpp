@@ -35,7 +35,7 @@ void AA1::render(float dt)
 	);
 
 	theCube->setTransforms(
-		glm::translate(glm::mat4(), glm::vec3(0.f, 0.f, -2.f)),
+		glm::translate(glm::mat4(), glm::vec3(0.f, 0.f, 0.f)),
 		cam
 	);
 
@@ -48,10 +48,10 @@ void AA1::render(float dt)
 
 	theModel->Update(dt);
 
-	theModel->draw();	
-	theLight->draw();
-	theCube->draw();
-	billboard->draw();
+	theModel->Draw();	
+	theLight->Draw();
+	theCube->Draw();
+	billboard->Draw();
 }
 
 void AA1::renderGUI()
@@ -59,4 +59,5 @@ void AA1::renderGUI()
 	theLight->DrawGUI();
 	ImGui::Spacing();
 	theModel->DrawGUI();
+	theCube->DrawGUI();
 }

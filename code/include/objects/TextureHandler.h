@@ -17,4 +17,3 @@ public:
 
 	GLuint GetTexID(int index) const;
 };
-

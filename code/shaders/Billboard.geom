@@ -21,19 +21,19 @@ void main() {
 	vec4 TopRight = center_pivot + vec4(size.x, size.y, 0.0, 0.0);
 		
 	gl_Position = proj_Mat * vec4(BottomLeft.xyz, 1.0);
-	f_uvCoord = vec2(1.0,1.0);
+	f_uvCoord = vec2(0.0,0.0);
 	EmitVertex();
 		
 	gl_Position = proj_Mat * vec4(BottomRight.xyz, 1.0);
-	f_uvCoord = vec2(0.0,1.0);
+	f_uvCoord = vec2(1.0,0.0);
 	EmitVertex();
 		
 	gl_Position = proj_Mat * vec4(TopLeft.xyz, 1.0);
-	f_uvCoord = vec2(1.0, 0.0); 
+	f_uvCoord = vec2(0.0, 1.0); 
 	EmitVertex();
 		
 	gl_Position = proj_Mat * vec4(TopRight.xyz, 1.0);
-	f_uvCoord = vec2(0.0,0.0);
+	f_uvCoord = vec2(1.0,1.0);
 	EmitVertex();
 
 	EndPrimitive();
