@@ -26,7 +26,7 @@ public:
 
 	void UpdateTransform(glm::vec3 pivot, CameraTransforms camTr);
 
-	void draw();
+	void Draw();
 	//void drawGUI();	
 };
 

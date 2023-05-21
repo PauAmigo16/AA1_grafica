@@ -53,7 +53,7 @@ void MyModel::setColor(glm::vec4 color)
 	this->color = color;
 }
 
-void MyModel::draw()
+void MyModel::Draw()
 {
 	glBindVertexArray(VAO);
 	program->use();
@@ -92,7 +92,7 @@ void MyModel::DrawGUI()
 	ImGui::SliderFloat("ambient", &kAmbient, 0.f, 1.f);
 	ImGui::SliderFloat("diffuse", &kDiffuse, 0.f, 1.f);
 	ImGui::SliderFloat("specular", &kSpecular, 0.f, 1.f);
-	if (ImGui::Button("KABOOM!")) {
+	if (ImGui::Button("BOOM!")) {
 		explode = !explode;
 	}
 

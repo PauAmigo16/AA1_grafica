@@ -18,7 +18,11 @@ public:
 	TexturedCube();
 	~TexturedCube();
 
-	void draw();
+	void Draw();
+	void DrawGUI();
+
+	void SingleTexture();
+	void MultipleTexture();
 
 	void setTransforms(glm::mat4 _objMat, CameraTransforms cam);
 };

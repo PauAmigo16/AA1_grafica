@@ -1,6 +1,6 @@
 #include "objects/TexturedPlane.h"
 
-TexturedPlane::TexturedPlane()
+TexturedPlane::TexturedPlane(std::string path)
 {
     float vertices[]{
         //positions            //Texture coords
@@ -49,7 +49,7 @@ TexturedPlane::TexturedPlane()
 
     program->link();
 
-    const std::vector<std::string> paths(1, "../res/wall_texture");
+    const std::vector<std::string> paths(1, path);
     texHandler = new TextureHandler(paths);
 
     glBindVertexArray(0);

@@ -118,7 +118,7 @@ void Cube::setColor(glm::vec4 color)
 	this->color = color;
 }
 
-void Cube::draw()
+void Cube::Draw()
 {
 	glBindVertexArray(VAO);
 	program->use();

@@ -18,7 +18,7 @@ private:
 	TextureHandler* texHandler;
 
 public:
-	TexturedPlane();
+	TexturedPlane(std::string path);
 	~TexturedPlane();
 
 	void draw();
