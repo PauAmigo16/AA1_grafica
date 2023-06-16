@@ -11,6 +11,10 @@ Renderer::Renderer(int width, int height)
 	glEnable(GL_DEPTH_TEST);
 
 	axis = new Axis();
+
+	cam.screenW = width;
+	cam.screenH = height;
+	cam.FOV = &FOV;
 }
 
 Renderer::~Renderer()
@@ -59,6 +63,8 @@ void Renderer::GUI()
 
 void Renderer::GLmousecb(MouseEvent ev)
 {
+	if (blockMouseInput) return;
+
 	if (prevMouse.waspressed && prevMouse.button == ev.button) {
 		float diffx = ev.posx - prevMouse.lastx;
 		float diffy = ev.posy - prevMouse.lasty;

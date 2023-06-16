@@ -20,6 +20,8 @@ struct CameraTransforms {
 	glm::mat4 _cameraRotationMat;
 	glm::mat4 _inv_modelview;
 	glm::vec4 _cameraPoint;
+	float* FOV;
+	int screenW, screenH;
 };
 
 class Renderer
@@ -33,7 +35,7 @@ public:
 	void GLrender(float dt);
 protected:
 	float FOV = glm::radians(65.f);
-	float zNear = 1.f;
+	float zNear = 0.1f;
 	float zFar = 50.f;
 
 	CameraTransforms cam;
@@ -45,6 +47,8 @@ protected:
 		MouseEvent::Button button = MouseEvent::Button::None;
 		bool waspressed = false;
 	} prevMouse;
+
+	bool blockMouseInput = false;
 
 	float panv[3] = { 0.f, 0.f, 0.f };
 	float rota[2] = { 0.f, 0.f };

@@ -139,7 +139,9 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="include\imgui\imgui_demo.cpp" />
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_impl_sdl_gl3.cpp" />
+    <ClCompile Include="src\objects\BB_Spawner.cpp" />
     <ClCompile Include="src\objects\BillBoard.cpp" />
+    <ClCompile Include="src\objects\CarSpawner.cpp" />
     <ClCompile Include="src\objects\LightCube.cpp" />
     <ClCompile Include="src\objects\LightReciever.cpp" />
     <ClCompile Include="src\objects\MyModel.cpp" />
@@ -151,6 +153,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="src\objects\TexturedPlane.cpp" />
     <ClCompile Include="src\objects\TextureHandler.cpp" />
     <ClCompile Include="src\renderers\AA1.cpp" />
+    <ClCompile Include="src\renderers\AA3.cpp" />
     <ClCompile Include="src\renderers\ExPlacementTriangles.cpp" />
     <ClCompile Include="src\renderers\ExSimpleCube.cpp" />
     <ClCompile Include="src\renderers\Renderer.cpp" />
@@ -158,7 +161,9 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
   <ItemGroup>
     <ClInclude Include="include\GL_framework.h" />
     <ClInclude Include="include\objects\Axis.h" />
+    <ClInclude Include="include\objects\BB_Spawner.h" />
     <ClInclude Include="include\objects\BillBoard.h" />
+    <ClInclude Include="include\objects\CarSpawner.h" />
     <ClInclude Include="include\objects\Cube.h" />
     <ClInclude Include="include\objects\LightCube.h" />
     <ClInclude Include="include\objects\LightReciever.h" />
@@ -169,6 +174,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\objects\TextureHandler.h" />
     <ClInclude Include="include\Program.h" />
     <ClInclude Include="include\renderers\AA1.h" />
+    <ClInclude Include="include\renderers\AA3.h" />
     <ClInclude Include="include\renderers\ExPlacementTriangles.h" />
     <ClInclude Include="include\renderers\ExSimpleCube.h" />
     <ClInclude Include="include\renderers\Renderer.h" />
@@ -181,6 +187,11 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <None Include="shaders\Billboard.frag" />
     <None Include="shaders\Billboard.geom" />
     <None Include="shaders\Billboard.vert" />
+    <None Include="shaders\BillboardSpw.frag" />
+    <None Include="shaders\BillboardSpw.geom" />
+    <None Include="shaders\BillboardSpw.vert" />
+    <None Include="shaders\CarSpw.frag" />
+    <None Include="shaders\CarSpw.vert" />
     <None Include="shaders\Cube.frag" />
     <None Include="shaders\Cube.vert" />
     <None Include="shaders\Dragon.frag" />
