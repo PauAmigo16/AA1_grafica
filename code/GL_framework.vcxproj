@@ -149,6 +149,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\objects\Axis.cpp" />
     <ClCompile Include="src\objects\Cube.cpp" />
+    <ClCompile Include="src\objects\RearCamera.cpp" />
     <ClCompile Include="src\objects\TexturedCube.cpp" />
     <ClCompile Include="src\objects\TexturedPlane.cpp" />
     <ClCompile Include="src\objects\TextureHandler.cpp" />
@@ -169,6 +170,7 @@ xcopy "$(ProjectDir)libs\SDL2.dll" "$(OutDir)" /y /d</Command>
     <ClInclude Include="include\objects\LightReciever.h" />
     <ClInclude Include="include\objects\MyModel.h" />
     <ClInclude Include="include\objects\ObjLoader.h" />
+    <ClInclude Include="include\objects\RearCamera.h" />
     <ClInclude Include="include\objects\TexturedCube.h" />
     <ClInclude Include="include\objects\TexturedPlane.h" />
     <ClInclude Include="include\objects\TextureHandler.h" />
